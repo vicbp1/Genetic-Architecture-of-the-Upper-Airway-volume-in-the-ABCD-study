@@ -8,7 +8,7 @@ using Serialization
 
 datadir="/local/chib/toconnor_grp/victor/IHC_projects/ABCD/Imputation_TOPMed_20250626/"
 
-df = CSV.read("/local/chib/toconnor_grp/victor/IHC_projects/ABCD/Imputation_TOPMed/LongGWAS/TrajGWAS/20250525_ThreeTimesPoints_2143uninds_Sites_PCA.txt", DataFrame)
+df = CSV.read("/local/chib/toconnor_grp/victor/IHC_projects/ABCD/Imputation_TOPMed_20250626/LongGWAS/20250525_ThreeTimesPoints_2141uninds_Sites_PCA.txt", DataFrame)
 
 df.Sex = categorical(df.Sex)
 df[!, :Age] = Float64.(df[!, :Age])
@@ -16,7 +16,7 @@ df[!, :Volume] = Float64.(df[!, :Volume])
 df.Ethnicity = categorical(df.Ethnicity)
 df.Site = categorical(df.Site)
 
-for chr in 2
+for chr in 19:22
         trajgwas(@formula(Volume ~ 1 + Age + Sex + BMI_percentile + PC1 + PC2 + PC3 + PC4 + PC5 +PC6 +PC7 + PC8 +PC9 + PC10),
                 @formula(Volume ~ 1),
                 @formula(Volume ~ 1 + Age + Sex + BMI_percentile),
